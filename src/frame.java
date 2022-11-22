@@ -64,7 +64,7 @@ public class frame extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setToolTipText("");
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 102));
