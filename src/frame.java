@@ -47,10 +47,10 @@ public class frame extends javax.swing.JFrame {
         tfAddress = new javax.swing.JTextField();
         javax.swing.JButton btnAdd = new javax.swing.JButton();
         javax.swing.JButton btnClear = new javax.swing.JButton();
-        javax.swing.JPanel Entriespanel = new javax.swing.JPanel();
-        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+        Entriespanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         Entriestable = new javax.swing.JTable();
-        javax.swing.JButton btnDelete = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
@@ -64,7 +64,7 @@ public class frame extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 51, 204));
         jPanel1.setToolTipText("");
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 102));
@@ -170,7 +170,7 @@ public class frame extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(ClientpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnClear))
@@ -207,21 +207,21 @@ public class frame extends javax.swing.JFrame {
             EntriespanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EntriespanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(EntriespanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(EntriespanelLayout.createSequentialGroup()
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EntriespanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
         );
         EntriespanelLayout.setVerticalGroup(
             EntriespanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EntriespanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDelete)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -262,9 +262,8 @@ public class frame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
@@ -302,20 +301,6 @@ public class frame extends javax.swing.JFrame {
         tfPhone.setText("");
         tfAddress.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        int row= Entriestable.getSelectedRow();
-        
-        if (row< 0){
-            JOptionPane.showMessageDialog(this,
-                    "No row is selected Please select one row",
-                    "Select row",
-                    JOptionPane.ERROR_MESSAGE);
-        } else {
-            DefaultTableModel model = (DefaultTableModel) Entriestable.getModel();
-            model.removeRow(row);
-        }
-    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         DefaultTableModel model = (DefaultTableModel) Entriestable.getModel();
@@ -358,6 +343,20 @@ public class frame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        int row= Entriestable.getSelectedRow();
+
+        if (row< 0){
+            JOptionPane.showMessageDialog(this,
+                "No row is selected Please select one row",
+                "Select row",
+                JOptionPane.ERROR_MESSAGE);
+        } else {
+            DefaultTableModel model = (DefaultTableModel) Entriestable.getModel();
+            model.removeRow(row);
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -394,7 +393,10 @@ public class frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Entriespanel;
     private javax.swing.JTable Entriestable;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField tfAddress;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfName;
